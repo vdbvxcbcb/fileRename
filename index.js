@@ -48,7 +48,6 @@ function rename() {
           return;
         }
         let renamedFiles = 0; // 记录重命名的文件数量
-        console.log('🚧 正在处理');
         // 遍历文件列表，找到需要重命名的文件
         files.forEach((file) => {
           if (file.isFile() && file.name.includes(oldName)) {
@@ -58,17 +57,17 @@ function rename() {
             try {
               // 重命名文件
               fs.renameSync(oldPath, newPath);
-              console.log(`文件 ${file.name} 重命名成功`);
+              console.log(`📝 文件 ${file.name} 重命名成功`);
               renamedFiles++;
             } catch (err) {
-              console.error(`🚨文件 ${file.name} 重命名失败：${err}`);
+              console.error(`🚨📝 文件 ${file.name} 重命名失败：${err}`);
             }
           }
         });
 
         // 输出结果
         if (renamedFiles === 0) {
-          console.log('❓当前目录下无法找到要替换的文件名，请检查替换的文件名');
+          console.log('🤖️：当前目录下无法找到要替换的文件名，请检查替换的文件名');
           rename()
         } else {
           console.log('\n🤖️：报告！任务完成！\n');
