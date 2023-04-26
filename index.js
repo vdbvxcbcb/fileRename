@@ -9,7 +9,7 @@ function rename() {
       {
         type: 'input',
         name: 'dest',
-        message: "请输入目录路径（绝对路径，不能有 '' 号）：",
+        message: "请输入目录路径（拖动目录即可，绝对路径不能有 '' 号）：",
         validate: function (input) {
           return new Promise(function (resolve, reject) {
             fs.access(input, fs.constants.F_OK | fs.constants.R_OK, function (err) {
